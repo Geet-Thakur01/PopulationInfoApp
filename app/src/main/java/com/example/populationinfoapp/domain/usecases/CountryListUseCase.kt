@@ -1,7 +1,7 @@
 package com.example.populationinfoapp.domain.usecases
 
-import com.example.populationinfoapp.data.dataSource.repoImpl.CountryRepoImpl
-import com.example.populationinfoapp.domain.models.Countries
+import com.example.populationinfoapp.data.models.Country
+import com.example.populationinfoapp.data.repoImpl.CountryRepoImpl
 import com.example.populationinfoapp.domain.repoInterface.CountryRepo
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -23,7 +23,7 @@ class CountryListUseCase(private val repo: CountryRepo = CountryRepoImpl()) {
 
     sealed class ResultData {
         object Loading : ResultData()
-        data class Success(val data: Countries) : ResultData()
+        data class Success(val data: List<Country>) : ResultData()
         data class Failure(val error: String) : ResultData()
     }
 }

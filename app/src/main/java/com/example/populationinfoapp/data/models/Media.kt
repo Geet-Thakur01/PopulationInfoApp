@@ -1,4 +1,4 @@
-package com.example.populationinfoapp.domain.models
+package com.example.populationinfoapp.data.models
 
 data class Media(
     val emblem: String,
