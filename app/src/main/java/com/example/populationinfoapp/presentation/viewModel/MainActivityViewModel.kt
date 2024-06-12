@@ -6,10 +6,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.populationinfoapp.data.models.Country
 import com.example.populationinfoapp.domain.usecases.CountryListUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainActivityViewModel(private val countryListUseCase: CountryListUseCase = CountryListUseCase()) :
+
+@HiltViewModel
+class MainActivityViewModel @Inject constructor(private val countryListUseCase: CountryListUseCase) :
     ViewModel() {
 
     private val _countries = mutableStateOf<List<Country>>(emptyList<Country>())

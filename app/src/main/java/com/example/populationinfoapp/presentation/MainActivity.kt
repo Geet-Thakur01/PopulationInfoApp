@@ -23,7 +23,10 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.populationinfoapp.data.models.Country
 import com.example.populationinfoapp.presentation.viewModel.MainActivityViewModel
 import com.example.populationinfoapp.ui.theme.PopulationInfoAppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +49,6 @@ class MainActivity : ComponentActivity() {
 fun MyApp(
     modifier: Modifier = Modifier,
 ) {
-//    val viewModel: MainActivityViewModel = MainActivityViewModel()
     val viewModel: MainActivityViewModel = viewModel()
     val countries: List<Country> by viewModel.countries
     Surface(modifier.fillMaxSize()) {

@@ -6,8 +6,9 @@ import com.example.populationinfoapp.domain.repoInterface.CountryRepo
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
+import javax.inject.Inject
 
-class CountryListUseCase(private val repo: CountryRepo = CountryRepoImpl()) {
+class CountryListUseCase @Inject constructor(private val repo: CountryRepo) {
     suspend fun excecute(): Flow<ResultData> {
         return flow {
             val response = repo.getCountryList()

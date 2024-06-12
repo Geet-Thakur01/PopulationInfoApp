@@ -5,8 +5,9 @@ import com.example.populationinfoapp.data.dataSource.remote.ApiService
 import com.example.populationinfoapp.data.models.Country
 import com.example.populationinfoapp.domain.repoInterface.CountryRepo
 import retrofit2.Response
+import javax.inject.Inject
 
-class CountryRepoImpl(private val apiService: ApiService = ApiClient.api) : CountryRepo {
+class CountryRepoImpl @Inject constructor(private val apiService: ApiService) : CountryRepo {
     override suspend fun getCountryList(): Response<List<Country>> {
         return apiService.getCountries()
     }
