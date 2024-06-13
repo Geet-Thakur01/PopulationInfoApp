@@ -27,7 +27,9 @@ class MainActivityViewModel @Inject constructor(private val countryListUseCase: 
         viewModelScope.launch {
             countryListUseCase.excecute().collectLatest { result ->
                 when (result) {
-                    is CountryListUseCase.ResultData.Loading -> {}
+                    is CountryListUseCase.ResultData.Loading -> {
+
+                    }
                     is CountryListUseCase.ResultData.Success -> {
                         println(result.data)
                         _countries.value=result.data

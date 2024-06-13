@@ -21,6 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.populationinfoapp.data.models.Country
+import com.example.populationinfoapp.presentation.components.CountryListItem
 import com.example.populationinfoapp.presentation.viewModel.MainActivityViewModel
 import com.example.populationinfoapp.ui.theme.PopulationInfoAppTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -53,12 +54,12 @@ fun MyApp(
     val countries: List<Country> by viewModel.countries
     Surface(modifier.fillMaxSize()) {
         Column(modifier = Modifier
-            .padding(16.dp)
+            .padding(5.dp)
             .verticalScroll(rememberScrollState())
         ) {
             countries.forEach { country ->
-                Text(text = "${country.name} - ${country.capital}")
-                Spacer(modifier = Modifier.height(8.dp))
+                CountryListItem(country = country) {
+                }
             }
         }
     }
